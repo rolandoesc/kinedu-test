@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import ApiService, { KineduServices } from './services/api.services';
+import MilestonesContext from './context/MilestonesContext';
+ApiService.init();
+KineduServices.skills('physical')
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MilestonesContext>
+      <App />
+
+    </MilestonesContext>
   </React.StrictMode>,
   document.getElementById('root')
 );

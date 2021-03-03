@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './assets/fonts/index.scss';
+@import './assets/styles/button.scss';
+:root {
+  --physical-color: #1FADDF;
+  --social-color: #D43571;
+  --button-primary-color: #75B753; 
+}
+
+h1, h2, h3, h4, h5, h6, p, label, button {
+  font-family: 'Gotham Rounded';
+}
+
+.layout__holder {
+  @apply w-full h-screen flex flex-col;
+  background-color: #FFFFFF;
+}
+
+.tabs__container {
+  @apply w-full flex flex-col pt-4 bg-transparent;
+  .header-text {
+    @apply pb-2 text-white font-bold mx-auto;
+  }
+  #tabs {
+    @apply flex mx-auto;
+    button {
+      background-color: transparent;
+      color: white;
+      border: solid white 1pt;
+      min-width: 11rem;
+    }
+    .left-tab {
+      border-bottom-left-radius: 100px;
+      border-top-left-radius: 100px;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .right-tab {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 100px;
+      border-top-right-radius: 100px;
+    }
+    button.left-tab.active {
+      background-color: white;
+      color: var(--physical-color);
+    } 
+    button.right-tab.active {
+      background-color: white;
+      color: var(--social-color);
+    }
+  }
+  .divider {
+    @apply border-white my-4 flex mx-auto;
+    width: 50%;
+  }
+}
+
+ul {
+  @apply overflow-y-auto;
+  max-height: 67.5vh;
+}
+li.milestone__container {
+  @apply mx-auto py-3 border-t w-4/5 flex justify-between;
+  .milestone__info {
+    @apply flex flex-col text-left text-sm;
+    .milestone__description {
+      @apply text-xs;
+    }
+  }
+}
+@media screen and (max-width: 769px) {
+  li.milestone__container {
+    @apply w-full px-4 mx-0;
+    .milestone__info {
+      @apply pr-2 w-3/5;
+    }
+    .milestone-status__button {
+      @apply w-2/5 my-auto;
+      max-height: 40px;
+    }
+  }
+}
+
+$width: 65;
+$color: #48bb78;
+
+.ball__loader {
+  width: $width + 0px;
+  height: ($width / 3) - 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.ball--loader__ball {
+  will-change: transform;
+  height: ($width / 3) - 8px;
+  width: ($width / 3) - 8px;
+  border-radius: 50%;
+  background-color: $color;
+  position: absolute;
+  animation: grow 0.7s ease-in-out infinite alternate;
+
+  &.ball__1 {
+    left: 0;
+    transform-origin: 100% 50%;
+  }
+  &.ball__2 {
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    animation-delay: 0.22s;
+  }
+  &.ball__3 {
+    right: 0;
+    animation-delay: 0.44s;
+  }
+}
+
+@keyframes grow {
+  to {
+    transform: translateX(-50%) scale(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+.fade-out {
+  animation: fadeOut ease 0.5s;
+  -webkit-animation: fadeOut ease 0.5s;
+  -moz-animation: fadeOut ease 0.5s;
+  -o-animation: fadeOut ease 0.5s;
+  -ms-animation: fadeOut ease 0.5s;
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
